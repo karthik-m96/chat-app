@@ -46,17 +46,40 @@
         border: none;
         border-bottom: 1px solid #a7bcff;
         &::placeholder {
-          color: rgb(175, 175, 175);
+          color: rgb(146, 146, 146);
         }
       }
-    }
-    button {
+
+      input[type="file"] {
+        display: none;
+      }
+
+      label {
+        color: #5d5b8c;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .fileLabel {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: #8da4f1;
+      }
+
+      button {
         cursor: pointer;
         background-color: #7b96ec;
         border: none;
         font-weight: bold;
         padding: 10px;
         color: white;
+      }
+    }
+
+    p {
+      color: #5d5b8f;
+      font-size: 14px;
+      margin-top: 10px;
     }
   }
 }
