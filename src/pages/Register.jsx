@@ -1,10 +1,12 @@
 import React from "react";
+import logo from "../assets/k1.png";
 
 const Register = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">K Chat</span>
+        <img src={logo} alt="logo" />
+        <span className="appName">K Chat</span>
         <span className="title">Register</span>
         <form>
           <input type="text" placeholder="display name" />
