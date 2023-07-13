@@ -44,6 +44,7 @@
       input {
         padding: 15px;
         border: none;
+        width: 250px;
         border-bottom: 1px solid #a7bcff;
         &::placeholder {
           color: rgb(146, 146, 146);
@@ -64,6 +65,7 @@
         align-items: center;
         gap: 5px;
         color: #8da4f1;
+        font-size: 12px;
       }
 
       button {
