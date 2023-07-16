@@ -8,8 +8,6 @@ function App() {
   return (
     <div>
       <Home />
-      <Register />
-      <Login />
     </div>
   );
 }
