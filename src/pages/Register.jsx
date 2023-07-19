@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import logo from "../assets/k1.png";
 import avatar from "../assets/gallery.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, storage } from "../firebase";
+import { auth, storage, db } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -26,8 +27,17 @@ const Register = () => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+            // Update user profile with display name and photo URL
             await updateProfile(res.user, {
-              displayName, 
+              displayName,
+              photoURL: downloadURL,
+            });
+
+            // Create a new document in the Firestore database
+            await setDoc(doc(db, "users", res.user.uid), {
+              uid: res.user.uid,
+              displayName,
+              email,
               photoURL: downloadURL,
             });
           });
